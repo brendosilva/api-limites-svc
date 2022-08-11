@@ -2,6 +2,9 @@ plugins {
 	id 'org.springframework.boot' version '2.7.2'
 	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
 	id 'java'
+	id 'idea'
+    id "org.flywaydb.flyway" version "8.4.3"
+
 }
 
 group = 'br.curso.coffe'
@@ -19,10 +22,22 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+	implementation 'org.flywaydb:flyway-core'
+
 	//compileOnly 'org.projectlombok:lombok:1.18.10'
     //annotationProcessor 'org.projectlombok:lombok:1.18.10'
 
 }
+
+flyway {
+	url = 'jdbc:postgresql://localhost:5432/limite'
+	user = 'limite'
+	password = 'limite_passwd'
+}
+
+build.dependsOn(flywayMigrate)
+
+
 
 tasks.named('test') {
 	useJUnitPlatform()
