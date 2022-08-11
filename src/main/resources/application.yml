@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/limites
+    url: jdbc:postgresql://localhost:5432/limite
     hikari:
       username: limite
       password: limite_passwd
@@ -12,6 +12,8 @@ spring:
         temp:
           use_jdbc_metadata_defaults: false
     hibernate:
-      hibernate.ddl-auto: create-drop
+      ddl-auto: update
       generate-ddl: true
       show-sql: true
+    generate-ddl: true
+
