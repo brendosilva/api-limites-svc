@@ -2,9 +2,7 @@ package br.curso.coffe.limitessvc.entities;
 
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -14,6 +12,7 @@ import java.util.Objects;
 public class LimiteDiario implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Long agencia;
